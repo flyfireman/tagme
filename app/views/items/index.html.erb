@@ -1,0 +1,31 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= link_to item.name,item %></td>
+    <td><%= truncate simple_format(item.body) ,:length => 250,:omission => "……#{link_to '全文',item}"%>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<div class="digg_pagination">
+  <%= will_paginate @photos %>
+</div>
+<br>
+<div style="padding:20px">
+tags: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+    <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>
+     <% end %>
+</div>
+<br />
+
+<%= link_to 'New item', new_item_path %>

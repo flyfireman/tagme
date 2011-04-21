@@ -1,0 +1,16 @@
+<% @items.each do |item| %>
+<hr />
+<tr>
+    <td><%= link_to item.name,item %></td>
+</tr>
+<% end %>
+
+<br />
+
+
+<br />
+
+
+<br />
+
+<%= link_to 'Back', items_path %>

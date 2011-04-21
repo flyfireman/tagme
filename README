@@ -1,0 +1,15 @@
+1. 
+rails tagme -d mysql
+
+2.
+ruby script/generate scaffold item name:string body:text
+
+3.
+rake db:migrate
+
+4.
+ruby script/plugin install git://github.com/jviney/acts_as_taggable_on_steroids.git
+
+5.
+ ruby script/generate acts_as_taggable_migration
+rake db:migrate

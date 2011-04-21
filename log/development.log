@@ -1,0 +1,2249 @@
+# Logfile created on Thu Apr 21 17:10:00 +0800 2011  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20110421091001)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mMysql::Error: Table 'items' already exists: CREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (79.0ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20110421091001)
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110421091001')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:12:24) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 1000ms (View: 984, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20110421091001)
+Migrating to ActsAsTaggableMigration (20110421091352)
+  [4;36;1mSQL (78.0ms)[0m   [0;1mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11), `taggable_id` int(11), `taggable_type` varchar(255), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (62.0ms)[0m   [0;1mCREATE INDEX `index_taggings_on_tag_id` ON `taggings` (`tag_id`)[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE INDEX `index_taggings_on_taggable_id_and_taggable_type` ON `taggings` (`taggable_id`, `taggable_type`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110421091352')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mdescribe `taggings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `taggings`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `tags`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:15:27) [GET]
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4b9e908>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:15:58) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4a9a048>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (78.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:30) [GET]
+  [4;36;1mSQL (391.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (109.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4cb0030>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:32) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4b95448>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (344.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:33) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4d18f2c>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (79.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:33) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4be89b8>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (203.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:34) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4d95c98>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:35) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4c5c19c>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (78.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:19:35) [GET]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+
+NoMethodError (undefined method `paginate' for #<Class:0x4b40d94>):
+  app/controllers/items_controller.rb:5:in `index'
+
+Rendered rescues/_trace (203.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:21:34) [GET]
+  [4;36;1mItem Load (110.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (219.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 625ms (View: 218, DB: 329) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:21:38) [GET]
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+  [4;35;1mTagging Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+Completed in 609ms (View: 593, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:22:43) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"卓博", "body"=>"我来剥药家鑫的心理辩护者李玫瑾的皮\r\n作者：石勇 提交日期：2011-3-28 3:14:00 正常 | 分类: | 访问量：46289\r\n在为药家鑫辩护开脱上，先有律师在法庭上玩\"激情杀人\"的无厘头概念――现在，\"心理专家\"在CCAV出马，说他连捅农妇6刀（准确应是8刀）是弹钢琴\r\n的一种\"强迫性动作\"。\r\n\r\n局势已经非常明显：强势群体已经联起手来，袒护其成员对弱势群体成员的残忍杀害。药家鑫案的审判，关涉的已经不仅仅是单个事件的正义和法律是否蒙羞。在\r\n这种情况下，保持沉默是可耻的。\r\n\r\n本文只就心理分析的角度揭穿为药家鑫心理辩护的\"心理专家\"的谬论。这位\"心理专家\"大名鼎鼎：中国人民公安大学犯罪心理学教授李玫瑾。\r\n\r\n中国的\"心理专家\"的专业知识和思维模式，从来就是一个笑柄。但有哲学背景的李玫瑾还是有点水平，这无法否认。在马当爵案和邱兴华案中，尽管他对马同学\r\n和邱屠的心理分析并不完全对，但还是说到了点子上。\r\n\r\n让我对她的专业知识在某些事情的判断上产生怀疑的，是孙东东说99%的上访者有精神病的那次交流。我不知道是因为她和孙东东是朋友的原因，还是水平的确\r\n有所欠缺，她居然认为，孙东东的观点并没有什么错，事实上很多上访者就是如此（大意）。\r\n\r\n还是如实地抄袭一下李玫瑾关于药家鑫残忍杀人是弹钢琴的\"强迫性动作\"的理论。当主持人问她如何解释药家鑫连捅农妇8刀时，她以权威的\"犯罪心理学专\r\n家\"的名义，是这样解释的：\r\n\r\n\"心理学上有一个词，经常叫强迫行为，强迫行为就是什么？他做的这个动作往往不是他的一种兴趣动作，而是一种机械的他在做，这个动作往往它会变成一个什\r\n么？替代行为。所以我现在突然明白什么呢？你刚刚问我的这个问题，也是我要问药家鑫的问题，他拿刀扎向这个女孩的时候，我认为他的动作是在他心里有委\r\n屈，在他有痛苦，在他有不甘的时候，却被摁在钢琴跟前弹琴的一个同样的动作。\"\r\n\r\n\"他这个动作不是报复，他是什么呢？实际上属于当我不满的时候，我弹琴本身是来发泄我内心的一种愤怒或者情绪。因此，当他再遇到这么一个不愉快的刺激的\r\n时候，他看到一个人被撞伤了，而且在记他的车号，他这个刀的行为实际上类似于砸琴的行为。\"\r\n\r\n这两段话，简直是在羞辱心理学。\r\n\r\n心理学上是有一个词叫\"强迫性动作\"，也有另一个词叫\"强迫性思维\"，有这些动作和思维，一般认为属于\"强迫症\"。但这只能吓唬一点都不懂心理分析的\r\n人，因为它们不过是心理学ABC。\r\n\r\n而李玫瑾在这一点上就错了：强迫性动作也可能变成一种兴趣动作（下面有分析）。\r\n\r\n这位\"心理专家\"更看不到，或者不想说出的是，强迫性动作的背后就是恐惧；它就相当于是一个仪式，一个人做强迫性动作，就是建立一个由仪式保证的确定性\r\n秩序，获得自我暗示的心理保护，消除内心的不安全感。\r\n\r\n患有轻度或重度强迫症的人，基本上都有这样的表现：关门时要连敲3下、5下等，以在心理上告诉自己\"门确实已经关好了\"。这类强迫性动作在一开始是用来\r\n逃避让自己恐惧的东西，到后来，不做这类有规律、有节奏的动作，本身就无法消除恐惧，因为没有了一个仪式来保护自己，这也是为什么强迫症那么难治的原\r\n因。但无论怎样，强迫性动作都与、\"不满\"、\"愤怒\"无关。\r\n\r\n一个人的不满、愤怒的源头可能是恐惧，他表现出不满或愤怒可能就是为了掩饰恐惧，但它们绝不会以强迫性动作表现出来。\r\n\r\n也就是说，药家鑫杀张妙的时候，如果充满了李玫瑾所说的\"委屈\"、\"痛苦\"、\"不甘\"，那么，他的动作就绝不是类似于\"在钢琴跟前弹琴的一个同样的动\r\n作\"，而是另外的动作：破坏性的动作。\r\n\r\n弹钢琴的动作，从心理动机上是破坏性吗？李玫瑾最后估计都觉得自己这样说太自欺欺人，不得不改变措词，称之为\"砸琴\"。\r\n\r\n药家鑫弹钢琴的动作是什么动作？对他的心理分析可以澄清，李玫瑾在这一点上没有犯愚蠢的错误：的确是强迫性动作。\r\n\r\n从药家鑫父母对他的管教中，可以看出是一种施虐狂似的管教。他们要按自己的意志和标准\"培养\"药家鑫。在心理上，这是一种对药家鑫的占有和控制。药家鑫\r\n要得到父母的\"爱\"，至少不被打骂，就必须把自己给卖了，把对自己的主宰权交出去，成为父母的附属品。\r\n\r\n这一点显而易见：既然弹钢琴是基于父母的意志，不弹钢琴有得不到爱或被打骂的危险，药家鑫弹钢琴的动作本身就成了一种消除恐惧的行为。他强迫自己弹钢\r\n琴，就是在为自己寻求安全感。\r\n\r\n但是，我发现，药家鑫弹钢琴的动作，并不仅仅是一种强迫性动作，它其实还是一种他想象为有\"兴趣\"的动作。\r\n\r\n这里的心理机制是：由于弹钢琴来自于父母的意志，并且携带着威胁，会让他在心里体验到自己对自己的出卖；为了心理上的生存，他一定要否认这一点――而否\r\n认的办法，就是强迫自己相信是出自于兴趣，弹钢琴让自己显得高档。\r\n\r\n因此，在开始的时候，弹钢琴在心理动机上，是为了消除来自父母那儿的恐惧；而到后来，则加了一码，还出自于消除意识到自己出卖了自己的恐惧，因为他被驱\r\n逐到内心深处的自我，只要一有机会，就会对他的出卖行为进行严厉的谴责。\r\n\r\n这样的一个自我出卖者，其实已经认同父母教给的很多东西了，真认为弹钢琴是一种高档的行为。\r\n\r\n这也可以解释，为什么在看守所的一个联欢会里，他会弹钢琴唱歌。不知李玫瑾对此做何解释：这是不是一种强迫性动作？有谁刺激了他？他心里有委屈、不满和\r\n愤怒吗？！\r\n\r\n一双弹钢琴的手残忍地朝一个可怜的农妇连捅八刀，李玫瑾将它解释为是弹钢琴动作的\"替代动作\"，已经突破了心理学知识的底线。\r\n\r\n事实上，药家鑫杀人根本就不是什么弹钢琴的强迫性动作的\"替代动作\"。这一套动作来自于其内心的破坏性，它不过是在某种情境的刺激中，对内心破坏性的释\r\n放而已。\r\n\r\n有两点让药家鑫在内心里早就变成一头狼，而不只是李玫瑾所说的\"心理上有严重缺陷\"和\"无知\"：\r\n\r\n一是他对自我的出卖让他对这个世界产生仇恨。在还是孩子的时候，他很弱小，因此在父母施虐狂似的教育中，他只能听话，为了得到所谓的爱，为了消除打骂的\r\n威胁，只能把自己给卖了。但是，内心里会有一个声音谴责他，为什么不能坚守自我？他实际上恨自己为什么要杀死自我。但是，为了在心理上活下去，他一定要\r\n否认自己有什么责任，而把它归结为外界：都是你们把我弄成这样的！他内心被破坏，他要报复。但是，正因为恐惧于父母，他不敢把仇恨单单指向父母，而是指\r\n向任何一个人，这个人在他的心理上，都是破坏了他内心的\"外界\"的一部分。\r\n\r\n二是他屈服于认为农民低档认为城里人高档、认为富人高档认为穷人低档、认为弹钢琴高档认为做服务员低档的社会价值排序。社会价值排序就是一种观念和心理\r\n上的食物链，大鱼吃小鱼，小鱼吃虾米，像霍布斯所描述的那个野蛮丛林一样，没多少人性可讲，因为它本身就是把人看成物品而不是看成人才能排成高低不等的\r\n位置。在社会价值排序里，人与人之间没有什么人性的联系。\r\n\r\n我不知道药家鑫的父母是否传给了他这种观念，就是农民是\"低档货\"。但完全可以判断，他在成长过程中屈服于社会价值排序，农民在他那儿并不是一个个有平\r\n等尊严的个体，不是一条条鲜活的生命，而只是在观念上可以歧视的抽象物。\r\n\r\n事情还原到药家鑫当初杀人时的情境。他开车撞倒了农妇张妙。这个在人性层面已经杀死了自己的人渣，没有感知他人痛苦的能力。像以往出卖自我、屈服于社会\r\n价值排序那样，唯一想到的就是自保。而当张妙看车牌被他发现时，他感觉到不承担责任的可能性已经被摧毁，陷入巨大的恐惧之中，蓄积已久的内心破坏性的巨\r\n大能量终于彻底释放，每捅一刀，似乎都是在为他谋求一分安全感；越有力，似乎越能驱除恐惧。\r\n\r\n\r\n李玫瑾嗔怪药家鑫\"这孩子\"没有\"敢于担当的责任与勇气\"。我想告诉她：这个人渣从来就没有对他的自我承担过任何责任，更不用说对他的行为，以及对别\r\n人！\r\n\r\n#日志日期：2011-3-27 星期日(Sunday) 晴\r\n\r\n我知道你与涯叔的关系！！！\r\n评论人：何小手 评论日期：2011-3-28 8:39", "tag_list"=>"rails,ruby,cool,维达"}}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (562.0ms)[0m   [0;1mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('卓博', '2011-04-21 09:22:43', '我来剥药家鑫的心理辩护者李玫瑾的皮\r\n作者：石勇 提交日期：2011-3-28 3:14:00 正常 | 分类: | 访问量：46289\r\n在为药家鑫辩护开脱上，先有律师在法庭上玩\"激情杀人\"的无厘头概念――现在，\"心理专家\"在CCAV出马，说他连捅农妇6刀（准确应是8刀）是弹钢琴\r\n的一种\"强迫性动作\"。\r\n\r\n局势已经非常明显：强势群体已经联起手来，袒护其成员对弱势群体成员的残忍杀害。药家鑫案的审判，关涉的已经不仅仅是单个事件的正义和法律是否蒙羞。在\r\n这种情况下，保持沉默是可耻的。\r\n\r\n本文只就心理分析的角度揭穿为药家鑫心理辩护的\"心理专家\"的谬论。这位\"心理专家\"大名鼎鼎：中国人民公安大学犯罪心理学教授李玫瑾。\r\n\r\n中国的\"心理专家\"的专业知识和思维模式，从来就是一个笑柄。但有哲学背景的李玫瑾还是有点水平，这无法否认。在马当爵案和邱兴华案中，尽管他对马同学\r\n和邱屠的心理分析并不完全对，但还是说到了点子上。\r\n\r\n让我对她的专业知识在某些事情的判断上产生怀疑的，是孙东东说99%的上访者有精神病的那次交流。我不知道是因为她和孙东东是朋友的原因，还是水平的确\r\n有所欠缺，她居然认为，孙东东的观点并没有什么错，事实上很多上访者就是如此（大意）。\r\n\r\n还是如实地抄袭一下李玫瑾关于药家鑫残忍杀人是弹钢琴的\"强迫性动作\"的理论。当主持人问她如何解释药家鑫连捅农妇8刀时，她以权威的\"犯罪心理学专\r\n家\"的名义，是这样解释的：\r\n\r\n\"心理学上有一个词，经常叫强迫行为，强迫行为就是什么？他做的这个动作往往不是他的一种兴趣动作，而是一种机械的他在做，这个动作往往它会变成一个什\r\n么？替代行为。所以我现在突然明白什么呢？你刚刚问我的这个问题，也是我要问药家鑫的问题，他拿刀扎向这个女孩的时候，我认为他的动作是在他心里有委\r\n屈，在他有痛苦，在他有不甘的时候，却被摁在钢琴跟前弹琴的一个同样的动作。\"\r\n\r\n\"他这个动作不是报复，他是什么呢？实际上属于当我不满的时候，我弹琴本身是来发泄我内心的一种愤怒或者情绪。因此，当他再遇到这么一个不愉快的刺激的\r\n时候，他看到一个人被撞伤了，而且在记他的车号，他这个刀的行为实际上类似于砸琴的行为。\"\r\n\r\n这两段话，简直是在羞辱心理学。\r\n\r\n心理学上是有一个词叫\"强迫性动作\"，也有另一个词叫\"强迫性思维\"，有这些动作和思维，一般认为属于\"强迫症\"。但这只能吓唬一点都不懂心理分析的\r\n人，因为它们不过是心理学ABC。\r\n\r\n而李玫瑾在这一点上就错了：强迫性动作也可能变成一种兴趣动作（下面有分析）。\r\n\r\n这位\"心理专家\"更看不到，或者不想说出的是，强迫性动作的背后就是恐惧；它就相当于是一个仪式，一个人做强迫性动作，就是建立一个由仪式保证的确定性\r\n秩序，获得自我暗示的心理保护，消除内心的不安全感。\r\n\r\n患有轻度或重度强迫症的人，基本上都有这样的表现：关门时要连敲3下、5下等，以在心理上告诉自己\"门确实已经关好了\"。这类强迫性动作在一开始是用来\r\n逃避让自己恐惧的东西，到后来，不做这类有规律、有节奏的动作，本身就无法消除恐惧，因为没有了一个仪式来保护自己，这也是为什么强迫症那么难治的原\r\n因。但无论怎样，强迫性动作都与、\"不满\"、\"愤怒\"无关。\r\n\r\n一个人的不满、愤怒的源头可能是恐惧，他表现出不满或愤怒可能就是为了掩饰恐惧，但它们绝不会以强迫性动作表现出来。\r\n\r\n也就是说，药家鑫杀张妙的时候，如果充满了李玫瑾所说的\"委屈\"、\"痛苦\"、\"不甘\"，那么，他的动作就绝不是类似于\"在钢琴跟前弹琴的一个同样的动\r\n作\"，而是另外的动作：破坏性的动作。\r\n\r\n弹钢琴的动作，从心理动机上是破坏性吗？李玫瑾最后估计都觉得自己这样说太自欺欺人，不得不改变措词，称之为\"砸琴\"。\r\n\r\n药家鑫弹钢琴的动作是什么动作？对他的心理分析可以澄清，李玫瑾在这一点上没有犯愚蠢的错误：的确是强迫性动作。\r\n\r\n从药家鑫父母对他的管教中，可以看出是一种施虐狂似的管教。他们要按自己的意志和标准\"培养\"药家鑫。在心理上，这是一种对药家鑫的占有和控制。药家鑫\r\n要得到父母的\"爱\"，至少不被打骂，就必须把自己给卖了，把对自己的主宰权交出去，成为父母的附属品。\r\n\r\n这一点显而易见：既然弹钢琴是基于父母的意志，不弹钢琴有得不到爱或被打骂的危险，药家鑫弹钢琴的动作本身就成了一种消除恐惧的行为。他强迫自己弹钢\r\n琴，就是在为自己寻求安全感。\r\n\r\n但是，我发现，药家鑫弹钢琴的动作，并不仅仅是一种强迫性动作，它其实还是一种他想象为有\"兴趣\"的动作。\r\n\r\n这里的心理机制是：由于弹钢琴来自于父母的意志，并且携带着威胁，会让他在心里体验到自己对自己的出卖；为了心理上的生存，他一定要否认这一点――而否\r\n认的办法，就是强迫自己相信是出自于兴趣，弹钢琴让自己显得高档。\r\n\r\n因此，在开始的时候，弹钢琴在心理动机上，是为了消除来自父母那儿的恐惧；而到后来，则加了一码，还出自于消除意识到自己出卖了自己的恐惧，因为他被驱\r\n逐到内心深处的自我，只要一有机会，就会对他的出卖行为进行严厉的谴责。\r\n\r\n这样的一个自我出卖者，其实已经认同父母教给的很多东西了，真认为弹钢琴是一种高档的行为。\r\n\r\n这也可以解释，为什么在看守所的一个联欢会里，他会弹钢琴唱歌。不知李玫瑾对此做何解释：这是不是一种强迫性动作？有谁刺激了他？他心里有委屈、不满和\r\n愤怒吗？！\r\n\r\n一双弹钢琴的手残忍地朝一个可怜的农妇连捅八刀，李玫瑾将它解释为是弹钢琴动作的\"替代动作\"，已经突破了心理学知识的底线。\r\n\r\n事实上，药家鑫杀人根本就不是什么弹钢琴的强迫性动作的\"替代动作\"。这一套动作来自于其内心的破坏性，它不过是在某种情境的刺激中，对内心破坏性的释\r\n放而已。\r\n\r\n有两点让药家鑫在内心里早就变成一头狼，而不只是李玫瑾所说的\"心理上有严重缺陷\"和\"无知\"：\r\n\r\n一是他对自我的出卖让他对这个世界产生仇恨。在还是孩子的时候，他很弱小，因此在父母施虐狂似的教育中，他只能听话，为了得到所谓的爱，为了消除打骂的\r\n威胁，只能把自己给卖了。但是，内心里会有一个声音谴责他，为什么不能坚守自我？他实际上恨自己为什么要杀死自我。但是，为了在心理上活下去，他一定要\r\n否认自己有什么责任，而把它归结为外界：都是你们把我弄成这样的！他内心被破坏，他要报复。但是，正因为恐惧于父母，他不敢把仇恨单单指向父母，而是指\r\n向任何一个人，这个人在他的心理上，都是破坏了他内心的\"外界\"的一部分。\r\n\r\n二是他屈服于认为农民低档认为城里人高档、认为富人高档认为穷人低档、认为弹钢琴高档认为做服务员低档的社会价值排序。社会价值排序就是一种观念和心理\r\n上的食物链，大鱼吃小鱼，小鱼吃虾米，像霍布斯所描述的那个野蛮丛林一样，没多少人性可讲，因为它本身就是把人看成物品而不是看成人才能排成高低不等的\r\n位置。在社会价值排序里，人与人之间没有什么人性的联系。\r\n\r\n我不知道药家鑫的父母是否传给了他这种观念，就是农民是\"低档货\"。但完全可以判断，他在成长过程中屈服于社会价值排序，农民在他那儿并不是一个个有平\r\n等尊严的个体，不是一条条鲜活的生命，而只是在观念上可以歧视的抽象物。\r\n\r\n事情还原到药家鑫当初杀人时的情境。他开车撞倒了农妇张妙。这个在人性层面已经杀死了自己的人渣，没有感知他人痛苦的能力。像以往出卖自我、屈服于社会\r\n价值排序那样，唯一想到的就是自保。而当张妙看车牌被他发现时，他感觉到不承担责任的可能性已经被摧毁，陷入巨大的恐惧之中，蓄积已久的内心破坏性的巨\r\n大能量终于彻底释放，每捅一刀，似乎都是在为他谋求一分安全感；越有力，似乎越能驱除恐惧。\r\n\r\n\r\n李玫瑾嗔怪药家鑫\"这孩子\"没有\"敢于担当的责任与勇气\"。我想告诉她：这个人渣从来就没有对他的自我承担过任何责任，更不用说对他的行为，以及对别\r\n人！\r\n\r\n#日志日期：2011-3-27 星期日(Sunday) 晴\r\n\r\n我知道你与涯叔的关系！！！\r\n评论人：何小手 评论日期：2011-3-28 8:39', '2011-04-21 09:22:43')[0m
+  [4;35;1mTag Load (78.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 1)) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'rails') LIMIT 1[0m
+  [4;35;1mTag Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mTag Load (31.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'rails') LIMIT 1[0m
+  [4;35;1mTag Create (31.0ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('rails')[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(1, 'Item', 1, '2011-04-21 09:22:43')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'ruby') LIMIT 1[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'ruby') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('ruby')[0m
+  [4;36;1mTagging Create (16.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(2, 'Item', 1, '2011-04-21 09:22:43')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'cool') LIMIT 1[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'cool') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('cool')[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(3, 'Item', 1, '2011-04-21 09:22:43')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE '维达') LIMIT 1[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY '维达') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('维达')[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(4, 'Item', 1, '2011-04-21 09:22:44')[0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items/1
+Completed in 938ms (DB: 843) | 302 Found [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:22:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (63.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 109ms (View: 31, DB: 78) | 200 OK [http://localhost/items/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:22:48) [GET]
+  [4;36;1mItem Load (32.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (31.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 203ms (View: 125, DB: 63) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:22:51) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:22:54) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:22:57) [GET]
+  Parameters: {"id"=>"维达"}
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE '维达')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:23:00) [GET]
+  Parameters: {"id"=>"ruby"}
+  [4;36;1mItem Load (16.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'ruby')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:23:24) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 32, DB: 15) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:23:25) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:24:33) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 219ms (View: 16, DB: 16) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:24:34) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:24:41) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:25:13) [GET]
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:25:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (172.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:34:57) [GET]
+  [4;36;1mItem Load (328.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (266.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (46.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 1344ms (View: 298, DB: 843) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:34:59) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:35:00) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (32.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:41:37) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (15.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 16, DB: 15) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:41:39) [GET]
+  Parameters: {"id"=>"ruby"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'ruby')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:41:43) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;36;1mItem Load (16.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:41:46) [GET]
+  Parameters: {"id"=>"维达"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE '维达')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:41:48) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 0, DB: 15) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:41:50) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:41:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/items/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:41:59) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:42:01) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:42:01) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:42:03) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:42:18) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:42:18) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:42:19) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:42:19) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:42:21) [GET]
+  Parameters: {"id"=>"维达"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE '维达')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:43:34) [GET]
+  Parameters: {"id"=>"维达"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE '维达')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:43:48) [GET]
+  Parameters: {"id"=>"维达"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE '维达')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:43:51) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:43:55) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:45:13) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:45:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:45:15) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:45:19) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:45:19) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:45:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+  [4;36;1mTag Load (15.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 1)) [0m
+  [4;35;1mTag Load (32.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE 'ruby' OR tags.name LIKE 'cool' OR tags.name LIKE '维达')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 78ms (View: 15, DB: 47) | 200 OK [http://localhost/items/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:45:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:45:25) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 32ms (View: 0, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:45:26) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:45:28) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+
+ActionView::MissingTemplate (Missing template items/tag.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:46:19) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (16.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:46:20) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:46:21) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+
+ActionView::TemplateError (undefined method `title' for #<Item:0x4d7fb00>) on line #3 of app/views/items/tag.erb:
+1: <% @items.each do |item| %>
+2: <tr>
+3:     <td><%=h item.title %></td>
+4: </tr>
+5: <% end %>
+
+    app/views/items/tag.erb:3
+    app/views/items/tag.erb:1:in `each'
+    app/views/items/tag.erb:1
+
+Rendered rescues/_trace (109.0ms)
+Rendered rescues/_request_and_response (16.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:46:39) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 172ms (View: 141, DB: 15) | 200 OK [http://localhost/items/tag?id=cool]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:46:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:47:23) [GET]
+  Parameters: {"id"=>"cool"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'cool')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 109ms (View: 15, DB: 16) | 200 OK [http://localhost/items/tag?id=cool]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:47:23) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:47:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 1)) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE 'ruby' OR tags.name LIKE 'cool' OR tags.name LIKE '维达')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 47ms (View: 0, DB: 32) | 200 OK [http://localhost/items/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:47:24) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:47:26) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:47:26) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:47:28) [GET]
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 46ms (View: 15, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:47:28) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:48:13) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"acts_as_taggable_on_steroids 插件应用总结", "body"=>"首先是通过一下路径安装:\r\nruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_taggable_on_steroids\r\n然后按照Readme配置,运行程序,报错如下:\r\n意思就是说acts_as_taggable_on_steroids已经移植到github上去了...\r\n\r\n看来不能这样安装了,需要通过git安装这个插件,方法如下:\r\n1. 确认电脑上已经安装了git\r\n2. 打开Git Bash, 通过cd命令进入到Rails应用程序目录下\r\n3. 运行以下代码:4. 这下安装好了.\r\n\r\nruby script/plugin install git://github.com/jviney/acts_as_taggable_on_steroids.git\r\n\r\n然后,根据readme进行配置...\r\n   \r\n\r\n一次Tag cloud的成功实践:\r\n\r\n1.Model\r\nclass Item < ActiveRecord::Base\r\n   acts_as_taggable\r\n\r\nend\r\n\r\n2.Controller\r\nclass ItemsController < ApplicationController\r\nlayout 'layouts/manage'\r\n# GET /items\r\n# GET /items.xml\r\ndef index\r\n    @items = Item.paginate :page =>params[:page]||1, :per_page =>10,:order=>\"updated_at DESC\"\r\n   tag_cloud\r\n      \r\n    respond_to do |format|\r\n      format.html # index.html.erb\r\n      format.xml { render :xml => @items }\r\n    end\r\nend\r\n\r\n#tag method\r\n   def   tag_cloud\r\n        @tags = Item.tag_counts\r\n    end\r\n\r\n   def tag\r\n       @items= Ttem.find_tagged_with(params[:id])\r\nend\r\n\r\n3.Helper\r\nmodule ApplicationHelper\r\n      include TagsHelper\r\n\r\nend\r\n\r\n4.View\r\n1). 添加标签:在new.html.erb中,\r\n<p>\r\n    <%= f.label :tags,'标签' %><br />\r\n    <%= f.text_field :tag_list,:size=>'60' %>*多个标签以\",\"隔开\r\n</p>\r\n*注意: tag_list字段并不在 Item表中有,多个标签以\",\"隔开\r\n\r\n2). 显示标签,在index.html.erb中,\r\n<div style=\"padding:20px\">\r\ntags: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>\r\n    <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>\r\n     <% end %>\r\n</div>\r\n3). 显示标签详细:新建一个文件: items/tag.erb\r\n<% @items.each do |item| %>\r\n<tr>\r\n    <td><%=h item.title %></td>\r\n</tr>\r\n<% end %>\r\n\r\n\r\n就这么简单,成功了!....", "tag_list"=>"acts_as_taggable_on_steroids"}}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (78.0ms)[0m   [0mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('acts_as_taggable_on_steroids 插件应用总结', '2011-04-21 09:48:13', '首先是通过一下路径安装:\r\nruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_taggable_on_steroids\r\n然后按照Readme配置,运行程序,报错如下:\r\n意思就是说acts_as_taggable_on_steroids已经移植到github上去了...\r\n\r\n看来不能这样安装了,需要通过git安装这个插件,方法如下:\r\n1. 确认电脑上已经安装了git\r\n2. 打开Git Bash, 通过cd命令进入到Rails应用程序目录下\r\n3. 运行以下代码:4. 这下安装好了.\r\n\r\nruby script/plugin install git://github.com/jviney/acts_as_taggable_on_steroids.git\r\n\r\n然后,根据readme进行配置...\r\n \r\n\r\n一次Tag cloud的成功实践:\r\n\r\n1.Model\r\nclass Item < ActiveRecord::Base\r\n acts_as_taggable\r\n\r\nend\r\n\r\n2.Controller\r\nclass ItemsController < ApplicationController\r\nlayout \'layouts/manage\'\r\n# GET /items\r\n# GET /items.xml\r\ndef index\r\n @items = Item.paginate :page =>params[:page]||1, :per_page =>10,:order=>\"updated_at DESC\"\r\n tag_cloud\r\n \r\n respond_to do |format|\r\n format.html # index.html.erb\r\n format.xml { render :xml => @items }\r\n end\r\nend\r\n\r\n#tag method\r\n def tag_cloud\r\n @tags = Item.tag_counts\r\n end\r\n\r\n def tag\r\n @items= Ttem.find_tagged_with(params[:id])\r\nend\r\n\r\n3.Helper\r\nmodule ApplicationHelper\r\n include TagsHelper\r\n\r\nend\r\n\r\n4.View\r\n1). 添加标签:在new.html.erb中,\r\n<p>\r\n <%= f.label :tags,\'标签\' %><br />\r\n <%= f.text_field :tag_list,:size=>\'60\' %>*多个标签以\",\"隔开\r\n</p>\r\n*注意: tag_list字段并不在 Item表中有,多个标签以\",\"隔开\r\n\r\n2). 显示标签,在index.html.erb中,\r\n<div style=\"padding:20px\">\r\ntags: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>\r\n <%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>\r\n <% end %>\r\n</div>\r\n3). 显示标签详细:新建一个文件: items/tag.erb\r\n<% @items.each do |item| %>\r\n<tr>\r\n <td><%=h item.title %></td>\r\n</tr>\r\n<% end %>\r\n\r\n\r\n就这么简单,成功了!....', '2011-04-21 09:48:13')[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 2)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'acts_as_taggable_on_steroids') LIMIT 1[0m
+  [4;36;1mTag Load (31.0ms)[0m   [0;1mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'acts_as_taggable_on_steroids') LIMIT 1[0m
+  [4;35;1mTag Create (0.0ms)[0m   [0mINSERT INTO `tags` (`name`) VALUES('acts_as_taggable_on_steroids')[0m
+  [4;36;1mTagging Create (15.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(5, 'Item', 2, '2011-04-21 09:48:13')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items/2
+Completed in 328ms (DB: 171) | 302 Found [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:48:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 2) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 2)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'acts_as_taggable_on_steroids')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/items/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:48:14) [GET]
+  [4;36;1mItem Load (16.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 16, DB: 31) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:48:17) [GET]
+  Parameters: {"id"=>"acts_as_taggable_on_steroids"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'acts_as_taggable_on_steroids')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 32ms (View: 0, DB: 16) | 200 OK [http://localhost/items/tag?id=acts_as_taggable_on_steroids]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:48:18) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 2) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 2)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'acts_as_taggable_on_steroids')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/items/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:18) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:48:20) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 78ms (View: 31, DB: 31) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:20) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:48:22) [GET]
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:48:36) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"10分钟给一个rails遗留系统添加标签功能", "body"=>"\r\n\r\n   早些时候做过了一个rails系统，当时没有涉及到标签的功能，最近客户看到很多网站有标签功能，并认为一个web2.0网站没有标签怎么可以，于是提出要给群组、文章等等加上标签的功能，开始感觉蛮麻烦的，我岂不是要修改很多东西？我最初的设想是给每个用到标签的表加个tag字段，标签作为以逗号隔开的字符串形式存进去，取出来的时候再解析，可是按标签搜索的话岂不是巨麻烦？转念一想这个方法实在是憨，这时我发现了 ...\r\nliuqiang 发表时间: 2008-07-19 浏览 (860) 回复 (2) 相关度: 100.00 %\r\n", "tag_list"=>"rails"}}
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (16.0ms)[0m   [0mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('10分钟给一个rails遗留系统添加标签功能', '2011-04-21 09:48:36', '\r\n\r\n 早些时候做过了一个rails系统，当时没有涉及到标签的功能，最近客户看到很多网站有标签功能，并认为一个web2.0网站没有标签怎么可以，于是提出要给群组、文章等等加上标签的功能，开始感觉蛮麻烦的，我岂不是要修改很多东西？我最初的设想是给每个用到标签的表加个tag字段，标签作为以逗号隔开的字符串形式存进去，取出来的时候再解析，可是按标签搜索的话岂不是巨麻烦？转念一想这个方法实在是憨，这时我发现了 ...\r\nliuqiang 发表时间: 2008-07-19 浏览 (860) 回复 (2) 相关度: 100.00 %\r\n', '2011-04-21 09:48:36')[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 3)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'rails') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(1, 'Item', 3, '2011-04-21 09:48:36')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items/3
+Completed in 78ms (DB: 32) | 302 Found [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:48:36) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 3)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 15, DB: 16) | 200 OK [http://localhost/items/3]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:36) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:48:38) [GET]
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:38) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:48:40) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (16.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 16ms (View: 0, DB: 16) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:40) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:48:55) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 156ms (View: 140, DB: 0) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:48:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:49:04) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (141.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 172ms (View: 0, DB: 157) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:05) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:49:15) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:49:20) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 3) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 3)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/items/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:21) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:49:22) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:49:24) [GET]
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 32ms (View: 16, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:24) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:49:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"这儿论坛标签的表结构是怎么设计的呢？", "body"=>"\r\n\r\n好像和百度的贴吧概念类似。不过百度的贴吧是精华才打上标签，并且看样子都是用搜索来做的。不知道javaeye是用的什么结构？还有那个 提交 的效果做的也非常的棒。补充：－－－仔细看了下，好像是用 tag 实现的，不过这样一个问题就是这个只适合管理员来设置各个板块的标签了，不同板块有相同的 tag 就有点麻烦。我现在的设计其实也是类似 tag 的：     create_table :e ...\r\nxinbo.tang 发表时间: 2008-05-26 浏览 (761) 回复 (2) 相关度: 84.88 %\r\n", "tag_list"=>"rails,cool"}}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.0ms)[0m   [0mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('这儿论坛标签的表结构是怎么设计的呢？', '2011-04-21 09:49:42', '\r\n\r\n好像和百度的贴吧概念类似。不过百度的贴吧是精华才打上标签，并且看样子都是用搜索来做的。不知道javaeye是用的什么结构？还有那个 提交 的效果做的也非常的棒。补充：－－－仔细看了下，好像是用 tag 实现的，不过这样一个问题就是这个只适合管理员来设置各个板块的标签了，不同板块有相同的 tag 就有点麻烦。我现在的设计其实也是类似 tag 的： create_table :e ...\r\nxinbo.tang 发表时间: 2008-05-26 浏览 (761) 回复 (2) 相关度: 84.88 %\r\n', '2011-04-21 09:49:42')[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 4)) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'rails') LIMIT 1[0m
+  [4;36;1mTagging Create (15.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(1, 'Item', 4, '2011-04-21 09:49:42')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT * FROM `tags` WHERE (name LIKE 'cool') LIMIT 1[0m
+  [4;36;1mTagging Create (0.0ms)[0m   [0;1mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(3, 'Item', 4, '2011-04-21 09:49:42')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/items/4
+Completed in 46ms (DB: 15) | 302 Found [http://localhost/items]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:49:42) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 4) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 4)) [0m
+  [4;35;1mTag Load (16.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE 'cool')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 32ms (View: 0, DB: 16) | 200 OK [http://localhost/items/4]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:42) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:49:45) [GET]
+  [4;36;1mItem Load (16.0ms)[0m   [0;1mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 10[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:49:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:50:41) [GET]
+
+ActionController::RoutingError (No route matches "/directors" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:50:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:50:45) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 63ms (View: 16, DB: 31) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:50:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (1031.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (266.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:52:20) [GET]
+  Parameters: {"id"=>"tag"}
+  [4;35;1mItem Columns (2203.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (688.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Item with ID=tag):
+  app/controllers/items_controller.rb:28:in `show'
+
+Rendered rescues/_trace (485.0ms)
+Rendered rescues/_request_and_response (125.0ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:52:38) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (625.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 844ms (View: 203, DB: 641) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:52:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:52:43) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 4) [0m
+  [4;35;1mTag Load (235.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 4)) [0m
+  [4;36;1mTag Load (375.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE 'cool')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 2078ms (View: 0, DB: 626) | 200 OK [http://localhost/items/4]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:52:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:53:11) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 140ms (View: 15, DB: 47) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:11) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:53:13) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 32, DB: 15) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:13) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:53:21) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 62ms (View: 30, DB: 16) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:21) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:53:32) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 157ms (View: 125, DB: 16) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:32) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:53:41) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 15, DB: 0) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:53:46) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 31ms (View: 16, DB: 15) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:46) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:53:47) [GET]
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:53:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:54:15) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"关于TAG及Category的一些讨论", "body"=>"\r\n\r\n最近在一些东西，有些主意拿不定。我就拿做一个“服装发布”来说事吧。在一般设计中，商品都有一个分类，我们一般再建立一个Category的Model Category has many Clothes Clothes belongs to category 我但经过思考后，觉得用这个Category属性不好，使用TAG会更好。因为服装除了是属于哪一个分类外，还有颜色，质地，尺码之类的，我发现用TAG ...\r\nqichunren 发表时间: 2008-10-17 浏览 (390) 回复 (2) 相关度: 77.97 %\r\n", "tag_list"=>"rails,维达"}}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (109.0ms)[0m   [0;1mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('关于TAG及Category的一些讨论', '2011-04-21 09:54:15', '\r\n\r\n最近在一些东西，有些主意拿不定。我就拿做一个“服装发布”来说事吧。在一般设计中，商品都有一个分类，我们一般再建立一个Category的Model Category has many Clothes Clothes belongs to category 我但经过思考后，觉得用这个Category属性不好，使用TAG会更好。因为服装除了是属于哪一个分类外，还有颜色，质地，尺码之类的，我发现用TAG ...\r\nqichunren 发表时间: 2008-10-17 浏览 (390) 回复 (2) 相关度: 77.97 %\r\n', '2011-04-21 09:54:15')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 5)) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'rails') LIMIT 1[0m
+  [4;35;1mTagging Create (16.0ms)[0m   [0mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(1, 'Item', 5, '2011-04-21 09:54:15')[0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE '维达') LIMIT 1[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(4, 'Item', 5, '2011-04-21 09:54:15')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/5
+Completed in 250ms (DB: 219) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:54:15) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 5) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 5)) [0m
+  [4;36;1mTag Load (31.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE '维达')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 62ms (View: 0, DB: 47) | 200 OK [http://localhost/items/5]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:54:17) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 187ms (View: 156, DB: 31) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:54:27) [GET]
+  [4;35;1mItem Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:27) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:54:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"rails you know", "body"=>"\r\nActs As Taggable On Steroids\r\n参考着mephisto写blog程序，第一次看到[].collect(&:name)的写法，别笑我……书上没见过，代码又写得少，结果就是这样。 ============================================= 答案在这里:http://www.infoq.com/cn/articles/ruby-open-classes-monkeypatching 主要记录一下 ...\r\nyuan 发表时间: 2010-01-20 浏览 (300) 回复 (3) 相关度: 100.00 %\r\nacts_as_taggable_on_steroids代替原acts_as_taggable\r\n1、安装 ruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_taggable_on_steroids 2、 class Post < ActiveRecord::Base acts_as_taggable end 3、 p = Post.find(:f ...\r\nwtb 发表时间: 2008-04-23 浏览 (887) 回复 (0) 相关度: 90.85 %\r\n使用Acts As Taggable On Steroids定义标签\r\n最近下载一个rails blog应用(Simplelog)并把它里面的acts_as_taggable plugin改为Acts As Taggable On Steroids,因为在rails2.0下总是运行出错. 1.安装 ruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_tagga ...\r\nkyoleelqh 发表时间: 2008-01-22 浏览 (1472) 回复 (3) 相关度: 75.22 %\r\nacts_as_taggable_on_steroids 与 will_paginate 的整合\r\n使用 acts_as_taggable_on_steroids 之后经常找有某个 tag 的 item：     @items = Item.find_tagged_with(”tag”) 找到很多需要分页显示，于是顺利成章的在后面加上：     @items = Item.find_tagged_with(”tag”).paginate :page => paramsp[:page ...\r\nhot88zh 发表时间: 2009-10-26 浏览 (116) 回复 (0) 相关度: 72.43 %\r\n", "tag_list"=>"rails"}}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (16.0ms)[0m   [0;1mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('rails you know', '2011-04-21 09:54:42', '\r\nActs As Taggable On Steroids\r\n参考着mephisto写blog程序，第一次看到[].collect(&:name)的写法，别笑我……书上没见过，代码又写得少，结果就是这样。 ============================================= 答案在这里:http://www.infoq.com/cn/articles/ruby-open-classes-monkeypatching 主要记录一下 ...\r\nyuan 发表时间: 2010-01-20 浏览 (300) 回复 (3) 相关度: 100.00 %\r\nacts_as_taggable_on_steroids代替原acts_as_taggable\r\n1、安装 ruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_taggable_on_steroids 2、 class Post < ActiveRecord::Base acts_as_taggable end 3、 p = Post.find(:f ...\r\nwtb 发表时间: 2008-04-23 浏览 (887) 回复 (0) 相关度: 90.85 %\r\n使用Acts As Taggable On Steroids定义标签\r\n最近下载一个rails blog应用(Simplelog)并把它里面的acts_as_taggable plugin改为Acts As Taggable On Steroids,因为在rails2.0下总是运行出错. 1.安装 ruby script/plugin install http://svn.viney.net.nz/things/rails/plugins/acts_as_tagga ...\r\nkyoleelqh 发表时间: 2008-01-22 浏览 (1472) 回复 (3) 相关度: 75.22 %\r\nacts_as_taggable_on_steroids 与 will_paginate 的整合\r\n使用 acts_as_taggable_on_steroids 之后经常找有某个 tag 的 item： @items = Item.find_tagged_with(”tag”) 找到很多需要分页显示，于是顺利成章的在后面加上： @items = Item.find_tagged_with(”tag”).paginate :page => paramsp[:page ...\r\nhot88zh 发表时间: 2009-10-26 浏览 (116) 回复 (0) 相关度: 72.43 %\r\n', '2011-04-21 09:54:42')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 6)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'rails') LIMIT 1[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(1, 'Item', 6, '2011-04-21 09:54:42')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/6
+Completed in 47ms (DB: 16) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:54:42) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 6) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 6)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/items/6]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:42) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:54:43) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 17:54:48) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:54:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 4) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 4)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails' OR tags.name LIKE 'cool')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/items/4]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:49) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#edit (for 127.0.0.1 at 2011-04-21 17:54:50) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 4) [0m
+Rendering template within layouts/items
+Rendering items/edit
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/items/4/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:54:53) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:54:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:55:41) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 63ms (View: 31, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:55:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:55:56) [GET]
+  [4;35;1mItem Load (15.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 78ms (View: 47, DB: 15) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:55:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:56:16) [GET]
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:56:30) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"ruby all x's", "body"=>"ruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x'sruby all x's", "tag_list"=>"ruby"}}
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (0.0ms)[0m   [0;1mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('ruby all x\'s', '2011-04-21 09:56:30', 'ruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'sruby all x\'s', '2011-04-21 09:56:30')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 7)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'ruby') LIMIT 1[0m
+  [4;35;1mTagging Create (16.0ms)[0m   [0mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(2, 'Item', 7, '2011-04-21 09:56:30')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/7
+Completed in 63ms (DB: 16) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:56:30) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 7) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 7)) [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'ruby')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 0, DB: 16) | 200 OK [http://localhost/items/7]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:30) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:56:32) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 47ms (View: 31, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:32) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 127.0.0.1 at 2011-04-21 17:56:39) [GET]
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 31ms (View: 16, DB: 0) | 200 OK [http://localhost/items/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:39) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 127.0.0.1 at 2011-04-21 17:56:56) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"wo6kTwYQD+AMcE5C7dvje6MPyH6FMFiKvBDc95dmT3M=", "item"=>{"name"=>"We test", "body"=>"\r\n欢迎fireflyman 收件箱 我的应用\r\n我的关注 我的参与 我的闲聊 我的群组 我的收藏 我的代码 我的简历\r\n我的博客 设置 退出\r\nITeye3.0\r\n精彩访谈和讨论\r\n\r\n    * Jwebap 性能优化工具 - 国内开源项目介绍（四）\r\n    * 采访Apache Camel项目主要维护者之一 jnn （十）\r\n    * 采访IK Analyzer 中文分词器开源项目作者林良益（十三）\r\n    * 开源框架Nutz开发者访谈（十五）\r\n    * 开源Web框架SimpleFramework开发团队访谈（十四）\r\n    * 探寻ThoughtWorks的敏捷实践，专访ThoughtWorks咨询师\r\n\r\n知识库和专栏\r\n\r\n    * JavaEye为什么要推出新闻频道，如何发布好的新闻\r\n    * Java程序员的推荐阅读书籍\r\n    * 开源Web框架SimpleFramework开发团队访谈（十四）\r\n    * JavaEye的Firefox插件使用帮助\r\n    * 第一章：Ruby语言最小化\r\n    * Python的descriptor\r\n\r\n \r\n热门博客文章\r\n\r\n    * TCP/IP传输层，你懂多少？\r\n    * Java Class Loader\r\n    * 谁动了他的jar包 (二)\r\n    * 为什么要使用集合框架？\r\n    * Java MVC框架性能比较\r\n    * 淘宝武汉*面试归来\r\n    * Spring温故知新（二） IoC控制反转与DI依赖注入(修正1)\r\n    * Spring 3.0 注解注入详解\r\n    * 一个好色女的经典语录！爆笑！\r\n    * 我当面试官的一些心得\r\n    * Extjs 动态生成树\r\n    * 我的数学之美（三） —— 使用支持向量机进行预测\r\n    * 职场新教，感触啊！（转载）\r\n    * 基于JQuery写的Grid，大家多多指点\r\n    * 判断cookie是否开启\r\n\r\n \r\nJavaeye\r\n\r\n    * 0基础Android培训 京沪深就业 保薪水\r\n    * 别让页面上的表单浪费程序员的时间!\r\n    * 免费android入门教程视频集锦！\r\n\r\n焦点新闻 更多\r\n\r\n    * Google到底有多大？Google究竟有多少用 ...\r\n    * StarFlow工作流引擎 0.6.1 发布\r\n    * YouTube力挺WebM视频格式 Flash遭受重 ...\r\n    * 科技界5年来最成功收购：Google购Andr ...\r\n    * 13个在企业中持上升势头的开源编程工具\r\n    * Gnome 3.2 发布计划及新功能预告\r\n    * NetBeans 7.0 发布，支持Java 7\r\n\r\nJava编程和企业应用热点 Java论坛\r\n\r\n    * 多线程算法题：国王、毒酒、侍卫\r\n    * 用tomcat做的大中型系统有哪些\r\n    * 将HashMap文件化\r\n    * 我的开源项目EJC在NetBeans Zone发布\r\n    * 带图片的SWING打包\r\n    * 晒一晒数据库操作的接口设计，看看有什\r\n    * 淘宝面试题 n个人围成一圈，报到m的\r\n    * 监控tomcat运行情况，有什么好的工具\r\n    * Hibernate延迟加载的困惑\r\n\r\nWeb前端技术热点 Web技术论坛\r\n\r\n    * select的disabled属性\r\n    * 前端开发工程师---技术路线图\r\n    * 哈哈找到一个能动态加载js的方法\r\n    * JQuery遮罩层\r\n    * 要么不做，要做就做用户\r\n    * 基于mootools js framework做的一些东\r\n    * java坐标图\r\n    * WEB端的绘图方式 讨论最优\r\n    * 博客(纯html静态)div+css\r\n\r\n动态语言编程热点 Ruby论坛\r\n\r\n    * ROR做的小站，有空去玩玩。\r\n    * 教你一步一步在VPS下搭建RAILS环境(\r\n    * 会求100的质数，给8000\r\n    * Ruby HTML 表单语句\r\n    * 对RAILS服务器配置要求的一次性能小测\r\n    * mongoDB vs mysql 性能对比测试\r\n    * MacRuby要火\r\n    * mongoDB性能初测与优化\r\n    * 学习python和ruby：杂谈\r\n\r\n移动编程和手机应用热点 移动开发论坛\r\n\r\n    * Android SB的一面，BUG汇总\r\n    * HTML5\r\n    * Android 报错汇总篇\r\n    * android webkit联网问题\r\n    * Android中文API(114)——TabWidget\r\n    * 【贪吃蛇—Java程序员写Android游戏】\r\n    * Android开发初步之Activity与Intent\r\n    * 【贪吃蛇—Java程序员写Android游戏】\r\n    * Android开发实例详解之IMF（Android \r\n\r\n综合技术热点 综合技术论坛\r\n\r\n    * 一个很简单的表150W条数据，count(*)需\r\n    * Oracle, the Open Source Killer.\r\n    * 今天看了个开源的web应用，近100个表\r\n    * 我的兄弟姐妹 ----- 转发的项目组一\r\n    * 生成文本聚类java实现 (1)\r\n    * Ubuntu系统目录结构\r\n    * Javaeye的一瞬间\r\n    * Google,Baidu,Sogou,SOSO哪个更牛（有\r\n    * PLSQL(语法--异常处理--游标--存储过程\r\n\r\n软件项目管理热点 软件开发论坛\r\n\r\n    * 一个三年的项目，想重构，求建议！！！\r\n    * 小公司管理的悲哀和员工服务意识的悲哀\r\n    * 准备设计一种新型项目管理-绩效工资考\r\n    * 浅谈项目管理经验\r\n    * 项目预算，老大要两月搞定，我估人日34\r\n    * 一个3年还未验收的项目\r\n    * 销售与售前为什么总打架？\r\n    * 对这一项目经理 不说十道十 只说7道\r\n    * BUG平台应该是一个知识库\r\n\r\n招聘和求职热点 招聘求职\r\n\r\n    * 大家给点建议吧。。。。如何选择。。。\r\n    * 阿里系的技术氛围\r\n    * 一个推销保险的MM被我搞郁闷了！\r\n    * 大外企工作将满一年，对于前途的迷茫\r\n    * 小本工作6年，PM才8k/m\r\n    * 软件工程师能力（面试）评价模型\r\n    * offer何去何从，如何是好\r\n    * 公司有钱途！程序员没前途！\r\n    * 重庆惠普口头offer到正式offer\r\n\r\n群组交流热点 群组频道\r\n\r\n    * 想攒机器对电脑城奸商不放心，网上买又 ...\r\n    * Drools-guvnor Server returned HTTP r ...\r\n    * Html5 Webgl\r\n    * 我用jstack查看信息。为什么提示：1174 ...\r\n    * Android Market新增运营商结算方式\r\n    * 谁来说说如何搭配TAPESTRY的环境啊?\r\n    * 肉饼这种行为算敲诈吗？\r\n    * 额，90后的人气怎么这么冷清？现在90后 ...\r\n    * Android头脑风暴\r\n\r\nDR\r\n热门招聘职位\r\n\r\n    * 上海:DeNA China诚聘iPhone应用程序开发工程师\r\n    * 北京:新媒传信(中国移动飞信)诚聘Java程序员\r\n    * 北京:NCI诚聘高级java程序员\r\n    * 北京:同方知网诚聘.NET软件工程师\r\n    * 上海:上海广播电视台网络新闻台诚聘高级Flash开发\r\n    * 北京:SURFRONT诚聘售前技术支持\r\n    * 北京:sinobeststar诚聘Java web开发工程师\r\n    * 北京:sinobeststar诚聘高级Java开发工程师\r\n    * 上海:FocusRx Research诚聘手机应用开发工程师\r\n    * 上海:金思维投资诚聘高级数据库工程师\r\n    * 广东:创威发展(盈彩网)诚聘网站营销主管\r\n    * 北京:Eleutian诚聘Ruby on Rails开发工程师\r\n    * 上海:UniQlick诚聘技术支持工程师\r\n    * 浙江:网易（NETEASE）诚聘系统管理员\r\n    * 上海:上海广播电视台网络新闻台诚聘网站前端开发工\r\n    * 北京:ThoughtWorks诚聘Business Analyst Principal\r\n    * 广东:创威发展(盈彩网)诚聘高级JAVA程序员\r\n    * 浙江:CSST研究院杭州分院诚聘移动视频开发/部门经\r\n    * 北京:chinacache诚聘Python开发工程师\r\n    * 浙江:广通信达杭州研发中心诚聘产品经理\r\n    * 浙江:CSST研究院杭州分院诚聘研究员\r\n    * 浙江:Kapesys诚聘架构师\r\n    * 北京:新媒传信(中国移动飞信)诚聘前端开发工程师\r\n    * 浙江:CSST研究院杭州分院诚聘C++服务器/客户端开\r\n    * 浙江:广通信达杭州研发中心诚聘UI工程师\r\n    * 上海:大众点评诚聘运维资深工程师（上海）\r\n    * 上海:FocusRx Research诚聘高级java软件工程师\r\n    * 北京:北京格致璞诚聘wap开发工程师\r\n    * 北京:Eleutian诚聘网页设计工程师\r\n    * 北京:搜狐公司诚聘【搜狐微博】Hadoop研发工程师\r\n    * 北京:SURFRONT诚聘Ruby开发工程师\r\n    * 北京:北京格致璞诚聘前端开发工程师\r\n    * 北京:Eleutian诚聘.NET Applications Engineer\r\n    * 浙江:CSST研究院杭州分院诚聘测试工程师\r\n    * 浙江:广通信达杭州研发中心诚聘高级java工程师\r\n    * 广东:团好多诚聘高级java软件工程师\r\n    * 浙江:广通信达杭州研发中心诚聘项目开发经理\r\n    * 北京:北大软件诚聘JAVA软件开发工程师（技术研发部\r\n    * 上海:为为网诚聘JAVA软件开发工程师：\r\n    * 陕西:ThoughtWorks诚聘西安Senior Java Applicatio\r\n    * 北京:SURFRONT诚聘LINUX C 工程师\r\n    * 北京:SURFRONT诚聘技术支持工程师\r\n    * 上海:金思维投资诚聘数据库工程师(月薪4K-7K）\r\n    * 浙江:百世物流科技诚聘.Net 工程师（.Net Enginee\r\n    * 浙江:广通信达杭州研发中心诚聘java工程师\r\n    * 上海:大众点评诚聘数据库资深工程师（上海）\r\n    * 北京:同方知网诚聘中级软件研发工程师（C/C++方向\r\n    * 北京:SURFRONT诚聘高级JAVA工程师\r\n    * 北京:chinacache诚聘Java应用架构师\r\n    * 上海:瑞易诚聘senior J2EE engineer\r\n    * 北京:ThoughtWorks诚聘Architect\r\n    * 北京:chinacache诚聘高级Java开发工程师（后台应用\r\n    * 上海:上海广播电视台网络新闻台诚聘高级PHP开发工\r\n    * 北京:chinacache诚聘中级Java开发工程师(CSP)\r\n    * 浙江:百世物流科技诚聘资深Java开发工程师（Senior\r\n    * 北京:胡莱游戏诚聘年薪8-16万高级Java程序员\r\n    * 上海:上海好买基金研究中心诚聘java web开发人员\r\n    * 北京:北京格致璞诚聘Java开发工程师\r\n    * 北京:敦煌网诚聘高级JAVA工程师\r\n    * 北京:chinacache诚聘Python/Java开发工程师（全职\r\n    * 上海:上海广播电视台网络新闻台诚聘网站架构师\r\n    * 上海:AskBenny诚聘高级Java程序员 Senior Java Dev\r\n    * 北京:chinacache诚聘高级Java开发工程师（web）\r\n    * 北京:新媒传信(中国移动飞信)诚聘php开发工程师\r\n    * 北京:北大软件诚聘软件测试工程师\r\n    * 北京:激动网诚聘iphone 程序员\r\n    * 浙江:CSST研究院杭州分院诚聘Java开发工程师/部门\r\n    * 上海:大众点评诚聘网站平台架构与性能优化（上海）\r\n    * 上海:大众点评诚聘开发经理（搜索团队）\r\n    * 浙江:广通信达杭州研发中心诚聘Flex/java开发工程\r\n    * 浙江:CSST研究院杭州分院诚聘Erlang开发工程师/部\r\n    * 浙江:百世物流科技诚聘测试工程师（Test Engineer\r\n    * 浙江:CSST研究院杭州分院诚聘项目经理\r\n    * 上海:FocusRx Research诚聘Flash AS开发工程师\r\n    * 广东:动网先锋诚聘Java开发工程师\r\n    * 上海:上海汉得诚聘Java企业应用开发顾问\r\n    * 上海:上海汉得诚聘高级项目经理/技术经理\r\n    * 上海:上海广播电视台网络新闻台诚聘网站系统工程师\r\n    * 北京:同方知网诚聘高级软件研发工程师（C/C++方向\r\n    * 上海:大众点评诚聘Java高级开发工程师（上海）\r\n    * 浙江:网易（NETEASE）诚聘前端开发工程师\r\n    * 北京:北大软件诚聘设计仿真软件集成开发工程师（技\r\n    * 上海:瑞易诚聘RDBMS/Data Warehouse Software Engi\r\n    * 北京:北大软件诚聘JAVA高级开发工程师\r\n    * 浙江:广通信达杭州研发中心诚聘高级测试工程师\r\n    * 北京:同方知网诚聘PHP工程师\r\n    * 浙江:广通信达杭州研发中心诚聘高级c++工程师\r\n    * 广东:chinacache诚聘Java开发工程师(广州）\r\n    * 上海:ele.me诚聘年薪15万 资深web开发工程师\r\n    * 上海:DeNA China诚聘 Web应用程序开发\r\n    * 北京:信雅达诚聘银行呼叫中心Java工程师\r\n    * 北京:北京格致璞诚聘手机软件开发工程师(J2ME平台\r\n    * 北京:北大软件诚聘高级软件测试工程师\r\n    * 北京:北大软件诚聘.Net高级软件工程师 (技术研发部\r\n    * 上海:上海好买基金研究中心诚聘Java软件工程师\r\n    * 北京:北京格致璞诚聘手机软件开发工程师（Android\r\n    * 上海:DeNA China诚聘Andorid应用程序开发工程师\r\n    * 上海:FocusRx Research诚聘Java软件工程师\r\n    * 北京:敦煌网诚聘高级Java工程师（电子商务搜索引擎\r\n    * 北京:SURFRONT诚聘JAVA工程师\r\n    * 上海:上海广播电视台网络新闻台诚聘PHP开发工程师\r\n    * 上海:上海广播电视台网络新闻台诚聘高级网站前端开\r\n    * 北京:北大软件诚聘JAVA开发工程师\r\n    * 浙江:百世物流科技诚聘软件工程师（SW Engineer)\r\n    * 上海:AskBenny诚聘中级Java程序员\r\n    * 上海:大众点评诚聘软件测试资深工程师（上海）\r\n    * 北京:Eleutian诚聘网络管理工程师\r\n    * 北京:ThoughtWorks诚聘Senior .Net Application De\r\n    * 上海:大众点评诚聘数据挖掘及个性化技术（上海）\r\n    * 北京:搜狐公司诚聘【搜狐微博】Java高级开发工程师\r\n    * 上海:大众点评诚聘CRM/ERP系统架构师（上海）\r\n    * 上海:大众点评诚聘财务系统资深开发工程师（上海）\r\n    * 北京:网易（NETEASE）诚聘高级Java开发工程师\r\n    * 北京:中期集团诚聘系统架构师(Java/J2EE)\r\n\r\n \r\n热门问答\r\n\r\n    * 程序代码性能知识求教\r\n    * AJAX+JS+SSH2整合代码\r\n    * 关于子窗口数据提交之后同时刷新父窗口问题\r\n    * 关于比较两个超大文件的差异，有什么好的思路\r\n    * 一个关于本地上传文件的问题..帮帮啊。。。\r\n    * java获取oracle查询结果\r\n    * 日期格式化问题\r\n    * Mysql安装不了啊\r\n\r\n热门群组\r\nRestlet群组\r\nRestlet\r\nRestlet是一个轻量级的REST框架， ...\r\nosworkflow群组\r\nosworkflow\r\n工作流引擎osworkflow,是一个轻量 ...\r\nHello World 达人群组\r\nHello World 达人\r\n7天-24小时-10分钟-5秒 学会 X ...\r\nswing群组\r\nswing\r\n欢迎大家一起来讨论和学习swing。\r\n音乐推荐，津津乐道群组\r\n音乐推荐，津津乐\r\n只谈音乐\r\n \r\n\r\n    * 首页\r\n    * 资讯\r\n    * 论坛\r\n    * 问答\r\n    * 专栏\r\n    * 博客\r\n    * 群组\r\n    * 招聘\r\n    * 服务\r\n    * 搜索\r\n    * 润亁报表\r\n\r\n", "tag_list"=>"java"}}
+  [4;36;1mItem Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItem Create (266.0ms)[0m   [0;1mINSERT INTO `items` (`name`, `updated_at`, `body`, `created_at`) VALUES('We test', '2011-04-21 09:56:56', '\r\n欢迎fireflyman 收件箱 我的应用\r\n我的关注 我的参与 我的闲聊 我的群组 我的收藏 我的代码 我的简历\r\n我的博客 设置 退出\r\nITeye3.0\r\n精彩访谈和讨论\r\n\r\n * Jwebap 性能优化工具 - 国内开源项目介绍（四）\r\n * 采访Apache Camel项目主要维护者之一 jnn （十）\r\n * 采访IK Analyzer 中文分词器开源项目作者林良益（十三）\r\n * 开源框架Nutz开发者访谈（十五）\r\n * 开源Web框架SimpleFramework开发团队访谈（十四）\r\n * 探寻ThoughtWorks的敏捷实践，专访ThoughtWorks咨询师\r\n\r\n知识库和专栏\r\n\r\n * JavaEye为什么要推出新闻频道，如何发布好的新闻\r\n * Java程序员的推荐阅读书籍\r\n * 开源Web框架SimpleFramework开发团队访谈（十四）\r\n * JavaEye的Firefox插件使用帮助\r\n * 第一章：Ruby语言最小化\r\n * Python的descriptor\r\n\r\n \r\n热门博客文章\r\n\r\n * TCP/IP传输层，你懂多少？\r\n * Java Class Loader\r\n * 谁动了他的jar包 (二)\r\n * 为什么要使用集合框架？\r\n * Java MVC框架性能比较\r\n * 淘宝武汉*面试归来\r\n * Spring温故知新（二） IoC控制反转与DI依赖注入(修正1)\r\n * Spring 3.0 注解注入详解\r\n * 一个好色女的经典语录！爆笑！\r\n * 我当面试官的一些心得\r\n * Extjs 动态生成树\r\n * 我的数学之美（三） —— 使用支持向量机进行预测\r\n * 职场新教，感触啊！（转载）\r\n * 基于JQuery写的Grid，大家多多指点\r\n * 判断cookie是否开启\r\n\r\n \r\nJavaeye\r\n\r\n * 0基础Android培训 京沪深就业 保薪水\r\n * 别让页面上的表单浪费程序员的时间!\r\n * 免费android入门教程视频集锦！\r\n\r\n焦点新闻 更多\r\n\r\n * Google到底有多大？Google究竟有多少用 ...\r\n * StarFlow工作流引擎 0.6.1 发布\r\n * YouTube力挺WebM视频格式 Flash遭受重 ...\r\n * 科技界5年来最成功收购：Google购Andr ...\r\n * 13个在企业中持上升势头的开源编程工具\r\n * Gnome 3.2 发布计划及新功能预告\r\n * NetBeans 7.0 发布，支持Java 7\r\n\r\nJava编程和企业应用热点 Java论坛\r\n\r\n * 多线程算法题：国王、毒酒、侍卫\r\n * 用tomcat做的大中型系统有哪些\r\n * 将HashMap文件化\r\n * 我的开源项目EJC在NetBeans Zone发布\r\n * 带图片的SWING打包\r\n * 晒一晒数据库操作的接口设计，看看有什\r\n * 淘宝面试题 n个人围成一圈，报到m的\r\n * 监控tomcat运行情况，有什么好的工具\r\n * Hibernate延迟加载的困惑\r\n\r\nWeb前端技术热点 Web技术论坛\r\n\r\n * select的disabled属性\r\n * 前端开发工程师---技术路线图\r\n * 哈哈找到一个能动态加载js的方法\r\n * JQuery遮罩层\r\n * 要么不做，要做就做用户\r\n * 基于mootools js framework做的一些东\r\n * java坐标图\r\n * WEB端的绘图方式 讨论最优\r\n * 博客(纯html静态)div+css\r\n\r\n动态语言编程热点 Ruby论坛\r\n\r\n * ROR做的小站，有空去玩玩。\r\n * 教你一步一步在VPS下搭建RAILS环境(\r\n * 会求100的质数，给8000\r\n * Ruby HTML 表单语句\r\n * 对RAILS服务器配置要求的一次性能小测\r\n * mongoDB vs mysql 性能对比测试\r\n * MacRuby要火\r\n * mongoDB性能初测与优化\r\n * 学习python和ruby：杂谈\r\n\r\n移动编程和手机应用热点 移动开发论坛\r\n\r\n * Android SB的一面，BUG汇总\r\n * HTML5\r\n * Android 报错汇总篇\r\n * android webkit联网问题\r\n * Android中文API(114)——TabWidget\r\n * 【贪吃蛇—Java程序员写Android游戏】\r\n * Android开发初步之Activity与Intent\r\n * 【贪吃蛇—Java程序员写Android游戏】\r\n * Android开发实例详解之IMF（Android \r\n\r\n综合技术热点 综合技术论坛\r\n\r\n * 一个很简单的表150W条数据，count(*)需\r\n * Oracle, the Open Source Killer.\r\n * 今天看了个开源的web应用，近100个表\r\n * 我的兄弟姐妹 ----- 转发的项目组一\r\n * 生成文本聚类java实现 (1)\r\n * Ubuntu系统目录结构\r\n * Javaeye的一瞬间\r\n * Google,Baidu,Sogou,SOSO哪个更牛（有\r\n * PLSQL(语法--异常处理--游标--存储过程\r\n\r\n软件项目管理热点 软件开发论坛\r\n\r\n * 一个三年的项目，想重构，求建议！！！\r\n * 小公司管理的悲哀和员工服务意识的悲哀\r\n * 准备设计一种新型项目管理-绩效工资考\r\n * 浅谈项目管理经验\r\n * 项目预算，老大要两月搞定，我估人日34\r\n * 一个3年还未验收的项目\r\n * 销售与售前为什么总打架？\r\n * 对这一项目经理 不说十道十 只说7道\r\n * BUG平台应该是一个知识库\r\n\r\n招聘和求职热点 招聘求职\r\n\r\n * 大家给点建议吧。。。。如何选择。。。\r\n * 阿里系的技术氛围\r\n * 一个推销保险的MM被我搞郁闷了！\r\n * 大外企工作将满一年，对于前途的迷茫\r\n * 小本工作6年，PM才8k/m\r\n * 软件工程师能力（面试）评价模型\r\n * offer何去何从，如何是好\r\n * 公司有钱途！程序员没前途！\r\n * 重庆惠普口头offer到正式offer\r\n\r\n群组交流热点 群组频道\r\n\r\n * 想攒机器对电脑城奸商不放心，网上买又 ...\r\n * Drools-guvnor Server returned HTTP r ...\r\n * Html5 Webgl\r\n * 我用jstack查看信息。为什么提示：1174 ...\r\n * Android Market新增运营商结算方式\r\n * 谁来说说如何搭配TAPESTRY的环境啊?\r\n * 肉饼这种行为算敲诈吗？\r\n * 额，90后的人气怎么这么冷清？现在90后 ...\r\n * Android头脑风暴\r\n\r\nDR\r\n热门招聘职位\r\n\r\n * 上海:DeNA China诚聘iPhone应用程序开发工程师\r\n * 北京:新媒传信(中国移动飞信)诚聘Java程序员\r\n * 北京:NCI诚聘高级java程序员\r\n * 北京:同方知网诚聘.NET软件工程师\r\n * 上海:上海广播电视台网络新闻台诚聘高级Flash开发\r\n * 北京:SURFRONT诚聘售前技术支持\r\n * 北京:sinobeststar诚聘Java web开发工程师\r\n * 北京:sinobeststar诚聘高级Java开发工程师\r\n * 上海:FocusRx Research诚聘手机应用开发工程师\r\n * 上海:金思维投资诚聘高级数据库工程师\r\n * 广东:创威发展(盈彩网)诚聘网站营销主管\r\n * 北京:Eleutian诚聘Ruby on Rails开发工程师\r\n * 上海:UniQlick诚聘技术支持工程师\r\n * 浙江:网易（NETEASE）诚聘系统管理员\r\n * 上海:上海广播电视台网络新闻台诚聘网站前端开发工\r\n * 北京:ThoughtWorks诚聘Business Analyst Principal\r\n * 广东:创威发展(盈彩网)诚聘高级JAVA程序员\r\n * 浙江:CSST研究院杭州分院诚聘移动视频开发/部门经\r\n * 北京:chinacache诚聘Python开发工程师\r\n * 浙江:广通信达杭州研发中心诚聘产品经理\r\n * 浙江:CSST研究院杭州分院诚聘研究员\r\n * 浙江:Kapesys诚聘架构师\r\n * 北京:新媒传信(中国移动飞信)诚聘前端开发工程师\r\n * 浙江:CSST研究院杭州分院诚聘C++服务器/客户端开\r\n * 浙江:广通信达杭州研发中心诚聘UI工程师\r\n * 上海:大众点评诚聘运维资深工程师（上海）\r\n * 上海:FocusRx Research诚聘高级java软件工程师\r\n * 北京:北京格致璞诚聘wap开发工程师\r\n * 北京:Eleutian诚聘网页设计工程师\r\n * 北京:搜狐公司诚聘【搜狐微博】Hadoop研发工程师\r\n * 北京:SURFRONT诚聘Ruby开发工程师\r\n * 北京:北京格致璞诚聘前端开发工程师\r\n * 北京:Eleutian诚聘.NET Applications Engineer\r\n * 浙江:CSST研究院杭州分院诚聘测试工程师\r\n * 浙江:广通信达杭州研发中心诚聘高级java工程师\r\n * 广东:团好多诚聘高级java软件工程师\r\n * 浙江:广通信达杭州研发中心诚聘项目开发经理\r\n * 北京:北大软件诚聘JAVA软件开发工程师（技术研发部\r\n * 上海:为为网诚聘JAVA软件开发工程师：\r\n * 陕西:ThoughtWorks诚聘西安Senior Java Applicatio\r\n * 北京:SURFRONT诚聘LINUX C 工程师\r\n * 北京:SURFRONT诚聘技术支持工程师\r\n * 上海:金思维投资诚聘数据库工程师(月薪4K-7K）\r\n * 浙江:百世物流科技诚聘.Net 工程师（.Net Enginee\r\n * 浙江:广通信达杭州研发中心诚聘java工程师\r\n * 上海:大众点评诚聘数据库资深工程师（上海）\r\n * 北京:同方知网诚聘中级软件研发工程师（C/C++方向\r\n * 北京:SURFRONT诚聘高级JAVA工程师\r\n * 北京:chinacache诚聘Java应用架构师\r\n * 上海:瑞易诚聘senior J2EE engineer\r\n * 北京:ThoughtWorks诚聘Architect\r\n * 北京:chinacache诚聘高级Java开发工程师（后台应用\r\n * 上海:上海广播电视台网络新闻台诚聘高级PHP开发工\r\n * 北京:chinacache诚聘中级Java开发工程师(CSP)\r\n * 浙江:百世物流科技诚聘资深Java开发工程师（Senior\r\n * 北京:胡莱游戏诚聘年薪8-16万高级Java程序员\r\n * 上海:上海好买基金研究中心诚聘java web开发人员\r\n * 北京:北京格致璞诚聘Java开发工程师\r\n * 北京:敦煌网诚聘高级JAVA工程师\r\n * 北京:chinacache诚聘Python/Java开发工程师（全职\r\n * 上海:上海广播电视台网络新闻台诚聘网站架构师\r\n * 上海:AskBenny诚聘高级Java程序员 Senior Java Dev\r\n * 北京:chinacache诚聘高级Java开发工程师（web）\r\n * 北京:新媒传信(中国移动飞信)诚聘php开发工程师\r\n * 北京:北大软件诚聘软件测试工程师\r\n * 北京:激动网诚聘iphone 程序员\r\n * 浙江:CSST研究院杭州分院诚聘Java开发工程师/部门\r\n * 上海:大众点评诚聘网站平台架构与性能优化（上海）\r\n * 上海:大众点评诚聘开发经理（搜索团队）\r\n * 浙江:广通信达杭州研发中心诚聘Flex/java开发工程\r\n * 浙江:CSST研究院杭州分院诚聘Erlang开发工程师/部\r\n * 浙江:百世物流科技诚聘测试工程师（Test Engineer\r\n * 浙江:CSST研究院杭州分院诚聘项目经理\r\n * 上海:FocusRx Research诚聘Flash AS开发工程师\r\n * 广东:动网先锋诚聘Java开发工程师\r\n * 上海:上海汉得诚聘Java企业应用开发顾问\r\n * 上海:上海汉得诚聘高级项目经理/技术经理\r\n * 上海:上海广播电视台网络新闻台诚聘网站系统工程师\r\n * 北京:同方知网诚聘高级软件研发工程师（C/C++方向\r\n * 上海:大众点评诚聘Java高级开发工程师（上海）\r\n * 浙江:网易（NETEASE）诚聘前端开发工程师\r\n * 北京:北大软件诚聘设计仿真软件集成开发工程师（技\r\n * 上海:瑞易诚聘RDBMS/Data Warehouse Software Engi\r\n * 北京:北大软件诚聘JAVA高级开发工程师\r\n * 浙江:广通信达杭州研发中心诚聘高级测试工程师\r\n * 北京:同方知网诚聘PHP工程师\r\n * 浙江:广通信达杭州研发中心诚聘高级c++工程师\r\n * 广东:chinacache诚聘Java开发工程师(广州）\r\n * 上海:ele.me诚聘年薪15万 资深web开发工程师\r\n * 上海:DeNA China诚聘 Web应用程序开发\r\n * 北京:信雅达诚聘银行呼叫中心Java工程师\r\n * 北京:北京格致璞诚聘手机软件开发工程师(J2ME平台\r\n * 北京:北大软件诚聘高级软件测试工程师\r\n * 北京:北大软件诚聘.Net高级软件工程师 (技术研发部\r\n * 上海:上海好买基金研究中心诚聘Java软件工程师\r\n * 北京:北京格致璞诚聘手机软件开发工程师（Android\r\n * 上海:DeNA China诚聘Andorid应用程序开发工程师\r\n * 上海:FocusRx Research诚聘Java软件工程师\r\n * 北京:敦煌网诚聘高级Java工程师（电子商务搜索引擎\r\n * 北京:SURFRONT诚聘JAVA工程师\r\n * 上海:上海广播电视台网络新闻台诚聘PHP开发工程师\r\n * 上海:上海广播电视台网络新闻台诚聘高级网站前端开\r\n * 北京:北大软件诚聘JAVA开发工程师\r\n * 浙江:百世物流科技诚聘软件工程师（SW Engineer)\r\n * 上海:AskBenny诚聘中级Java程序员\r\n * 上海:大众点评诚聘软件测试资深工程师（上海）\r\n * 北京:Eleutian诚聘网络管理工程师\r\n * 北京:ThoughtWorks诚聘Senior .Net Application De\r\n * 上海:大众点评诚聘数据挖掘及个性化技术（上海）\r\n * 北京:搜狐公司诚聘【搜狐微博】Java高级开发工程师\r\n * 上海:大众点评诚聘CRM/ERP系统架构师（上海）\r\n * 上海:大众点评诚聘财务系统资深开发工程师（上海）\r\n * 北京:网易（NETEASE）诚聘高级Java开发工程师\r\n * 北京:中期集团诚聘系统架构师(Java/J2EE)\r\n\r\n \r\n热门问答\r\n\r\n * 程序代码性能知识求教\r\n * AJAX+JS+SSH2整合代码\r\n * 关于子窗口数据提交之后同时刷新父窗口问题\r\n * 关于比较两个超大文件的差异，有什么好的思路\r\n * 一个关于本地上传文件的问题..帮帮啊。。。\r\n * java获取oracle查询结果\r\n * 日期格式化问题\r\n * Mysql安装不了啊\r\n\r\n热门群组\r\nRestlet群组\r\nRestlet\r\nRestlet是一个轻量级的REST框架， ...\r\nosworkflow群组\r\nosworkflow\r\n工作流引擎osworkflow,是一个轻量 ...\r\nHello World 达人群组\r\nHello World 达人\r\n7天-24小时-10分钟-5秒 学会 X ...\r\nswing群组\r\nswing\r\n欢迎大家一起来讨论和学习swing。\r\n音乐推荐，津津乐道群组\r\n音乐推荐，津津乐\r\n只谈音乐\r\n \r\n\r\n * 首页\r\n * 资讯\r\n * 论坛\r\n * 问答\r\n * 专栏\r\n * 博客\r\n * 群组\r\n * 招聘\r\n * 服务\r\n * 搜索\r\n * 润亁报表\r\n\r\n', '2011-04-21 09:56:56')[0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 8)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT * FROM `tags` WHERE (name LIKE 'java') LIMIT 1[0m
+  [4;35;1mTag Load (31.0ms)[0m   [0mSELECT `tags`.id FROM `tags` WHERE (`tags`.`name` = BINARY 'java') LIMIT 1[0m
+  [4;36;1mTag Create (47.0ms)[0m   [0;1mINSERT INTO `tags` (`name`) VALUES('java')[0m
+  [4;35;1mTagging Create (0.0ms)[0m   [0mINSERT INTO `taggings` (`tag_id`, `taggable_type`, `taggable_id`, `created_at`) VALUES(6, 'Item', 8, '2011-04-21 09:56:56')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/items/8
+Completed in 406ms (DB: 359) | 302 Found [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 17:56:56) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mItem Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 8) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 8)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'java')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 0, DB: 15) | 200 OK [http://localhost/items/8]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 17:56:58) [GET]
+  [4;35;1mItem Load (16.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 17:56:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (859.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (219.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:09:34) [GET]
+  [4;35;1mItem Load (500.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (234.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (110.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 55078ms (View: 52125, DB: 1984) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (578.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:10:34) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (125.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:11:28) [GET]
+  [4;35;1mItem Load (563.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (453.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (63.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (156.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 3265ms (View: 1140, DB: 1360) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:33) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 18:11:41) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mItem Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 8) [0m
+  [4;35;1mTag Load (62.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 8)) [0m
+  [4;36;1mTag Load (62.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'java')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 234ms (View: 0, DB: 124) | 200 OK [http://localhost/items/8]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:41) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:11:44) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (31.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 125ms (View: 78, DB: 31) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 18:11:47) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (16.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 46ms (View: 15, DB: 16) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:11:48) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 79ms (View: 47, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:49) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 18:11:50) [GET]
+  Parameters: {"id"=>"ruby"}
+  [4;35;1mItem Load (31.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'ruby')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 31ms (View: 0, DB: 31) | 200 OK [http://localhost/items/tag?id=ruby]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:50) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:11:53) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (94.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 188ms (View: 47, DB: 125) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:53) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#tag (for 127.0.0.1 at 2011-04-21 18:11:55) [GET]
+  Parameters: {"id"=>"rails"}
+  [4;35;1mItem Load (31.0ms)[0m   [0mSELECT DISTINCT items.* FROM `items` INNER JOIN taggings items_taggings ON items_taggings.taggable_id = items.id AND items_taggings.taggable_type = 'Item' INNER JOIN tags items_tags ON items_tags.id = items_taggings.tag_id WHERE ((items_tags.name LIKE 'rails')) [0m
+Rendering template within layouts/items
+Rendering items/tag
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 187ms (View: 16, DB: 31) | 200 OK [http://localhost/items/tag?id=rails]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 127.0.0.1 at 2011-04-21 18:11:56) [GET]
+  Parameters: {"id"=>"6"}
+  [4;35;1mItem Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mItem Load (0.0ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 6) [0m
+  [4;35;1mTag Load (0.0ms)[0m   [0mSELECT `tags`.* FROM `tags` INNER JOIN `taggings` ON `tags`.id = `taggings`.tag_id WHERE ((`taggings`.taggable_type = 'Item') AND (`taggings`.taggable_id = 6)) [0m
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (((tags.name LIKE 'rails')) AND taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 31ms (View: 15, DB: 16) | 200 OK [http://localhost/items/6]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:57) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2011-04-21 18:11:57) [GET]
+  [4;35;1mItem Load (0.0ms)[0m   [0mSELECT * FROM `items` ORDER BY updated_at DESC LIMIT 0, 5[0m
+  [4;36;1mItem Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `items` [0m
+  [4;36;1mTag Load (16.0ms)[0m   [0;1mSELECT tags.id, tags.name, COUNT(*) AS count FROM `tags` INNER JOIN taggings ON tags.id = taggings.tag_id INNER JOIN items ON items.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Item') GROUP BY tags.id, tags.name HAVING COUNT(*) > 0[0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 79ms (View: 47, DB: 16) | 200 OK [http://localhost/items]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-21 18:11:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/9999.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
